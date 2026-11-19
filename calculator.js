@@ -13,7 +13,7 @@ const systemFields = [
   { key: "trayMemory", label: "Memory per tray (TB)", baseline: 0, proposed: 16 },
   { key: "throughput", label: "Throughput at service target (tokens/sec)", baseline: 100000, proposed: 120000, positive: true },
   { key: "systemCost", label: "Upfront system cost excluding X-Mem ($)", baseline: 1080000, proposed: 1080000 },
-  { key: "memoryCost", label: "Upfront installed X-Mem cost ($)", baseline: 0, proposed: 144000 },
+  { key: "memoryCost", label: "Upfront installed X-Mem cost ($)", baseline: 0, proposed: 108000 },
   { key: "operatingCost", label: "Operating cost per system-hour ($)", baseline: 40, proposed: 42 },
 ];
 
