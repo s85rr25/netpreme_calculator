@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#141629">
+  <title>X-Mem Design-in Calculator | Netpreme</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23141629'/%3E%3Cpath d='M16 4l3.5 8.5L28 16l-8.5 3.5L16 28l-3.5-8.5L4 16l8.5-3.5Z' fill='%23c8b7ff'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <script src="calculator.js" defer></script>
+</head>
+<body>
+  <header class="masthead">
+    <div class="wrap topbar">
+      <span class="brand"><span class="brand-mark" aria-hidden="true">✦</span> netpreme</span>
+      <span class="tag">Prototype · USD</span>
+    </div>
+    <div class="wrap intro">
+      <p class="eyebrow">Infrastructure economics</p>
+      <h1>X-Mem design-in calculator</h1>
+      <p>Compare a baseline system with X-Mem at the same workload, latency, and quality targets. Start with the illustrative demo, then edit the assumptions to see what changes.</p>
+      <a class="jump" href="#assumptions">Edit assumptions <span aria-hidden="true">↓</span></a>
+    </div>
+  </header>
+
+  <main class="wrap dashboard">
+    <noscript><p class="panel">Enable JavaScript to edit assumptions and calculate results.</p></noscript>
+    <section aria-labelledby="decision-heading" id="results">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow"><span>01</span> Decision</p>
+          <h2 id="decision-heading">Is X-Mem worth it?</h2>
+        </div>
+        <p id="decision-status" class="status" role="status">Waiting for inputs</p>
+      </div>
+      <div class="cards">
+        <article class="panel metric">
+          <h3>Cost per million tokens</h3>
+          <strong id="proposed-token-cost">—</strong>
+          <p>With X-Mem · <span id="baseline-token-cost">—</span> baseline</p>
+        </article>
+        <article class="panel metric">
+          <h3>Cost-per-token savings</h3>
+          <strong id="token-savings">—</strong>
+          <p>Compared with a <span id="savings-target">—</span> savings target</p>
+        </article>
+        <article class="panel metric accent">
+          <h3>Maximum upfront X-Mem cost</h3>
+          <strong id="price-ceiling">—</strong>
+          <p>Per system, to meet your savings target</p>
+          <p id="price-gap"></p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="comparison-heading">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow"><span>02</span> Comparison</p>
+          <h2 id="comparison-heading">System and fleet results</h2>
+        </div>
+      </div>
+      <div class="panel table-panel">
+        <table>
+          <caption>Both fleets serve the same sustained demand. Fleet TCO is the total cost of ownership.</caption>
+          <thead>
+            <tr><th scope="col">Metric</th><th scope="col">Baseline</th><th scope="col">With X-Mem</th></tr>
+          </thead>
+          <tbody id="comparison"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="assumptions" aria-labelledby="assumptions-heading">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow"><span>03</span> Inputs</p>
+          <h2 id="assumptions-heading">Edit your assumptions</h2>
+        </div>
+        <button type="reset" form="calculator">Reset demo values</button>
+      </div>
+      <p class="section-description">Results update as you type. Use 0 for unused hardware or costs.</p>
+      <form id="calculator" novalidate>
+        <p id="input-status" class="input-status" role="status"></p>
+        <fieldset class="panel">
+          <legend>Shared assumptions</legend>
+          <div class="fields" id="shared-fields"></div>
+        </fieldset>
+        <p class="section-description">Use throughput measured at the same service targets when available. More memory alone does not predict throughput.</p>
+        <div class="system-fields">
+          <fieldset class="panel">
+            <legend>Baseline system</legend>
+            <div class="fields" id="baseline-fields"></div>
+          </fieldset>
+          <fieldset class="panel">
+            <legend>System with X-Mem</legend>
+            <div class="fields" id="proposed-fields"></div>
+          </fieldset>
+        </div>
+      </form>
+      <a class="back-link" href="#results">View updated results <span aria-hidden="true">↑</span></a>
+    </section>
+
+    <aside class="panel guide" aria-labelledby="guide-heading">
+      <h2 id="guide-heading">How to read the price ceiling</h2>
+      <p>The ceiling is the most you can spend upfront on installed X-Mem per system and still hit your cost-per-token target at the entered throughput. A negative ceiling means the target is out of reach even if X-Mem is free.</p>
+      <p>Check fleet TCO separately: each fleet needs a whole number of systems. This is an undiscounted planning model. Validate throughput, fabric compatibility, and costs with the vendor.</p>
+    </aside>
+  </main>
+  <footer class="wrap footer"><strong>Netpreme</strong><span>X-Mem prototype · Illustrative estimates</span></footer>
+</body>
+</html>
